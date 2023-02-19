@@ -175,37 +175,27 @@ class SpawnsResult:
 
 # Driver program to the above graph class
 if __name__ == "__main__":
-    s = time.perf_counter()
+    logging.info("running example 1")
     dag = Dag()
     dag.pipeline(f1, f2).then().spawns(f3, f4, f5).join().pipeline(f6, f7, f8).then().spawns(f9, f10).join()
     dag.run()
-    elapsed = time.perf_counter() - s
-    logging.info(f"{__file__} executed in {elapsed:0.2f} seconds.")
 
-    s = time.perf_counter()
+    logging.info("running example 2")
     dag = Dag()
     dag.spawns(f1, f2, f3).join().pipeline(f4, f5).then().spawns(f6, f7, f8).join().pipeline(f9, f10).then()
     dag.run()
-    elapsed = time.perf_counter() - s
-    logging.info(f"{__file__} executed in {elapsed:0.2f} seconds.")
 
-    s = time.perf_counter()
+    logging.info("running example 3")
     dag = Dag()
     dag.pipeline(f1, f2, f3, f4, f5, f6, f7, f8).then().spawns(f9, f10, ).join()
     dag.run()
-    elapsed = time.perf_counter() - s
-    logging.info(f"{__file__} executed in {elapsed:0.2f} seconds.")
 
-    s = time.perf_counter()
+    logging.info("running example 4")
     dag = Dag()
     dag.spawns(f1, f2, f3, f4, f5, f6, f7, f8).join().pipeline(f9, f10, ).then()
     dag.run()
-    elapsed = time.perf_counter() - s
-    logging.info(f"{__file__} executed in {elapsed:0.2f} seconds.")
 
-    s = time.perf_counter()
+    logging.info("running example 5")
     dag = Dag()
     dag.spawns(wrap_tasks(f1, f2, f3), wrap_tasks(f4, f5, f6), wrap_tasks(f7, f8)).join().pipeline(f9, f10, ).then()
     dag.run()
-    elapsed = time.perf_counter() - s
-    logging.info(f"{__file__} executed in {elapsed:0.2f} seconds.")
