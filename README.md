@@ -1,9 +1,9 @@
-# dag_runner
+# dag runner
 
 dag_runner has two main concept:
 
-1. **Pipeline** executes the functions sequentially and in order.
-2. **Spawns**   executes the functions concurrently, so there is no ordering guarantee.
+1. **Pipeline** executes the set of functions in sequential order .
+2. **Spawns**   executes the set of functions in concurrent fashion and does not have any ordering guarantee.
 
 ## Example 1  
 runs f1 and f2 sequentially then f3, f4, f5 in parallel then again f6,f7, f8 in sequence and finally f9, f10
