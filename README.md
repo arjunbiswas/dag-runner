@@ -9,7 +9,7 @@ dag_runner has two main concept:
 runs f1 and f2 sequentially then f3, f4, f5 in parallel then again f6,f7, f8 in sequence and finally f9, f10
 in parallel
 
-![example](images/dag_runner.png)
+![example](images/dag-runner.png)
 
 ```python
 dag = Dag()
